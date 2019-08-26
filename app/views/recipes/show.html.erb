@@ -3,7 +3,7 @@
 <h3>Detalhes</h3>
 
 <p>Tipo da receita:</p>
-<p><%= @recipe.recipe_type %></p>
+<p><%= @recipe.recipe_type.name %></p>
 <p>Cozinha</p>
 <p><%= @recipe.cuisine %></p>
 <p>Dificuldade</p>
@@ -16,5 +16,7 @@
 
 <h3>Como Preparar</h3>
 <p><%= @recipe.cook_method %></p>
+
+<%= link_to 'Editar', edit_recipe_path %>
 
 <%= link_to 'Voltar', root_path %>

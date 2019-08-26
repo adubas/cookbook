@@ -1,12 +1,13 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
-<% @recipes.each do |recipe| %>
-  <h1><%= link_to recipe.title, recipe %></h1>
-  <ul>
-    <li><%= recipe.recipe_type %></li>
-    <li><%= recipe.cuisine %></li>
-    <li><%= recipe.difficulty %></li>
-    <li><%= recipe.cook_time_min %></li>
-  </ul>
+<%= form_tag(search_recipes_path, method: :get) do %>
+  <%= label_tag(:search_recipe , 'Buscar receita') %>
+  <%= text_field_tag(:search_recipe) %>
+  <%= submit_tag('Buscar') %>
 <% end %>
+
+<%= render 'previews' %>
+
+<%= link_to 'Enviar uma receita', new_recipe_path %>
+<%= link_to 'Novo tipo de receita', new_recipe_type_path %>
