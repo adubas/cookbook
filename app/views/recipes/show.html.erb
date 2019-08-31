@@ -17,6 +17,8 @@
 <h3>Como Preparar</h3>
 <p><%= @recipe.cook_method %></p>
 
-<%= link_to 'Editar', edit_recipe_path %>
+<% if @recipe.owner?(current_user) %>
+    <%= link_to 'Editar', edit_recipe_path %>
+<% end %>
 
 <%= link_to 'Voltar', root_path %>

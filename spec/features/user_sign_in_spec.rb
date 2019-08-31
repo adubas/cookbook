@@ -7,7 +7,7 @@ feature 'User sign in' do
         visit root_path
         click_on 'Entrar'
 
-        within('form#new_user') do
+        within('form') do
             fill_in 'E-mail', with: user.email
             fill_in 'Senha', with: '145678'
             click_on 'Entrar'
@@ -24,7 +24,7 @@ feature 'User sign in' do
         visit root_path
         click_on 'Entrar'
 
-        within('form#new_user') do
+        within('form') do
             fill_in 'E-mail', with: user.email
             fill_in 'Senha', with: '145678'
             click_on 'Entrar'

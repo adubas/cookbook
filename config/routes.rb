@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     get 'search', on: :collection 
   end
   resources :recipe_types, only: %i[show new create]
+
+  get 'users/my_recipes'
 end

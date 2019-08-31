@@ -5,4 +5,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def my_recipes
+  end
 end
