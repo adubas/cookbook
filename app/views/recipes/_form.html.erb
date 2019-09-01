@@ -1,17 +1,17 @@
 <%= form_for @recipe do |f| %>
-  <%= f.label :title, 'Título' %>
+  <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :recipe_type_id, 'Tipo da Receita' %>
+  <%= f.label :recipe_type_id %>
   <%= f.collection_select(:recipe_type_id, @recipe_types, :id, :name) %>
-  <%= f.label :cuisine, 'Cozinha' %>
-  <%= f.text_field :cuisine %>
-  <%= f.label :difficulty, 'Dificuldade' %>
+  <%= f.label :cuisine_id %>
+  <%= f.collection_select(:cuisine_id, @cuisines, :id, :name) %>
+  <%= f.label :difficulty %>
   <%= f.text_field :difficulty %>
-  <%= f.label :cook_time, 'Tempo de Preparo' %>
+  <%= f.label :cook_time %>
   <%= f.number_field :cook_time %>
-  <%= f.label :ingredients, 'Ingredientes' %>
+  <%= f.label :ingredients %>
   <%= f.text_area :ingredients %>
-  <%= f.label :cook_method, 'Como Preparar' %>
+  <%= f.label :cook_method %>
   <%= f.text_area :cook_method %>
-  <%= f.submit 'Enviar' %>
+  <%= f.submit %>
 <% end %>

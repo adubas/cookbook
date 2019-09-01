@@ -1,12 +1,12 @@
-<h1>Tipos de Receita</h1>
+<h1>Cozinhas</h1>
 
-<% @recipe_type.errors.full_messages.each do |message| %>
+<% @cuisine.errors.full_messages.each do |message| %>
   <ul>
     <li> <%= message %> </li>
   </ul>
 <% end %>
 
-<%= form_for @recipe_type do |f| %>
+<%= form_for @cuisine do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.submit %>

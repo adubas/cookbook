@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      recipe: Receita
+      recipe_type: Tipo de Receita
+      cuisine: Cozinha
+      user: Usuário
+    attributes:
+      recipe:
+        title: Título
+        recipe_type_id: Tipo da Receita
+        cuisine_id: Cozinha
+        difficulty: Dificuldade
+        cook_time: Tempo de Preparo
+        ingredients: Ingredientes
+        cook_method: Como Preparar
+      recipe_type:
+        name: Nome do tipo de Receita
+      cuisine:
+        name: Tipo de Cozinha

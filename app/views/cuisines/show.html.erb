@@ -1,0 +1,9 @@
+<h1>Cozinhas</h1>
+
+<% @cuisines.each do |cuisine| %>
+  <ul>
+    <li> <%= cuisine.name %> </li>
+  </ul>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>
