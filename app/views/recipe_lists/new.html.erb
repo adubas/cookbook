@@ -1,0 +1,13 @@
+<h1>Lista de Receitas</h1>
+
+<% @recipe_list.errors.full_messages.each do |message| %>
+  <ul>
+    <li> <%= message %> </li>
+  </ul>
+<% end %>
+
+<%= form_for @recipe_list do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

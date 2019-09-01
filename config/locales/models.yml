@@ -5,6 +5,7 @@ pt-BR:
       recipe_type: Tipo de Receita
       cuisine: Cozinha
       user: Usuário
+      recipe_list: Lista
     attributes:
       recipe:
         title: Título
@@ -18,3 +19,5 @@ pt-BR:
         name: Nome do tipo de Receita
       cuisine:
         name: Tipo de Cozinha
+      recipe_list:
+        name: Nome da Lista
