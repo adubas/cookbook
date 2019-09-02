@@ -1,0 +1,8 @@
+<h1>Minhas Listas</h1>
+
+<% @recipe_lists.each do |recipe_list| %>
+  <h3><%= link_to recipe_list.name, recipe_list %></h3>
+<% end %>
+
+<%= link_to 'Criar lista', new_recipe_list_path %>
+<%= link_to 'Voltar', root_path %>

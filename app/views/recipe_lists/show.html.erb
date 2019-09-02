@@ -4,7 +4,7 @@
 
 <% if @recipe_list.recipes.any? %>
   <% @recipe_list.recipes.each do |recipe| %>
-    <p> <%= link_to @recipe.title, recipe %> </p>
+    <p> <%= link_to recipe.title, recipe_path(recipe) %> </p>
   <% end %>
 <% else %>
   <p> Você não tem nenhuma receita adicionada </p>

@@ -1,4 +1,7 @@
 class CuisinesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :authorize_admin, only: %i[new create]
+
   def show
     @cuisines = Cuisine.all
   end
@@ -22,5 +25,9 @@ class CuisinesController < ApplicationController
 
   def cuisine_params
     params.require(:cuisine).permit(:name)
+  end
+
+  def authorize_admin
+    redirect_to root_path unless current_user.admin
   end
 end

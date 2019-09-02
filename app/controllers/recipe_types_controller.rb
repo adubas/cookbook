@@ -1,4 +1,7 @@
 class RecipeTypesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :authorize_admin, only: %i[new create]
+
   def show
     @recipe_types = RecipeType.all
   end
@@ -22,5 +25,9 @@ class RecipeTypesController < ApplicationController
 
   def recipe_type_params
     params.require(:recipe_type).permit(:name)
+  end
+
+  def authorize_admin
+    redirect_to root_path unless current_user.admin
   end
 end

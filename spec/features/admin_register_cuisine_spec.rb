@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Admin register cuisine" do
   scenario "successfully" do
-    user = User.create!(email: "something@email.com", password: "145678")
+    user = User.create!(email: "something@email.com", password: "145678", admin: true)
     login_as(user)
 
     visit root_path
@@ -18,7 +18,7 @@ feature "Admin register cuisine" do
   end
 
   scenario "and must fill in all fields" do
-    user = User.create!(email: "something@email.com", password: "145678")
+    user = User.create!(email: "something@email.com", password: "145678", admin: true)
     login_as(user)
 
     visit root_path
@@ -34,7 +34,7 @@ feature "Admin register cuisine" do
 
   scenario "and must be unique" do
     Cuisine.create!(name: "Polonesa")
-    user = User.create!(email: "something@email.com", password: "145678")
+    user = User.create!(email: "something@email.com", password: "145678", admin: true)
     login_as(user)
 
     visit root_path

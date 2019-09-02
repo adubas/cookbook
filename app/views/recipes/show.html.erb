@@ -21,4 +21,12 @@
     <%= link_to 'Editar', edit_recipe_path %>
 <% end %>
 
+<% if current_user %>
+  <%= form_tag(add_to_list_recipe_path) do %>
+    <%= label_tag(:recipe_list_id, "Listas") %>
+    <%= select_tag(:recipe_list_id, options_from_collection_for_select(RecipeList.all, :id, :name)) %>
+    <%= submit_tag("Adicionar") %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Voltar', root_path %>

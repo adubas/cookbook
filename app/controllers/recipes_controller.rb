@@ -42,6 +42,14 @@ class RecipesController < ApplicationController
     end
   end
 
+  def add_to_list
+    @recipe = Recipe.find(params[:id])
+    @recipe_list = RecipeList.find(params[:recipe_list_id])
+    @recipe_list_item = RecipeListItem.create(recipe: @recipe, recipe_list: @recipe_list)
+    flash[:notice] = "Receita adicionada com sucesso!"
+    redirect_to @recipe_list
+  end
+
   def search
     @recipes = Recipe.where("title LIKE ?", "%#{params[:search_recipe]}%")
 
@@ -63,5 +71,9 @@ class RecipesController < ApplicationController
   def load_attributes
     @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
+  end
+
+  def authorize_admin
+    redirect_to root_path unless current_user.admin
   end
 end

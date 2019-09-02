@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  enum status: { pending: 0, approved: 1, rejected: 9 }
+
   belongs_to :user
   belongs_to :recipe_type
   belongs_to :cuisine
