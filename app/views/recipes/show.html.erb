@@ -17,6 +17,12 @@
 <h3>Como Preparar</h3>
 <p><%= @recipe.cook_method %></p>
 
+<p>Imagens</p>
+<% @recipe.images.each do |image| %>
+  <%= image_tag image %>
+<% end %>
+
+
 <p> Receita criada por <%= @recipe.user.email %> </p>
 
 <% if @recipe.pending? %>

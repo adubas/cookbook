@@ -15,6 +15,7 @@ pt-BR:
         cook_time: Tempo de Preparo
         ingredients: Ingredientes
         cook_method: Como Preparar
+        images: Imagens
       recipe_type:
         name: Nome do tipo de Receita
       cuisine:
