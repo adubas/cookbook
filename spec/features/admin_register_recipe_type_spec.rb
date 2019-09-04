@@ -47,4 +47,13 @@ feature "Admin register recipe type" do
     expect(page).to have_content("Nome do tipo de Receita já está em uso")
     expect(page).not_to have_content("Tipo de Receita cadastrado com sucesso!")
   end
+
+  scenario "and user can't acess this page" do
+    user = User.create!(email: "something@email.com", password: "457878")
+    login_as(user)
+
+    visit new_recipe_type_path
+
+    expect(current_path).to eq root_path
+  end
 end

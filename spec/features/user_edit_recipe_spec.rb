@@ -11,7 +11,7 @@ feature "User update recipe" do
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: "Farinha, açucar, cenoura",
                   cook_method: "Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes",
-                  user: user)
+                  user: user, status: :approved)
     login_as(user)
     # simula a ação do usuário
     visit root_path
@@ -47,7 +47,7 @@ feature "User update recipe" do
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: "Farinha, açucar, cenoura",
                   cook_method: "Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes",
-                  user: user)
+                  user: user, status: :approved)
     login_as(user)
     # simula a ação do usuário
     visit root_path
@@ -75,7 +75,7 @@ feature "User update recipe" do
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: "Farinha, açucar, cenoura",
                   cook_method: "Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes",
-                  user: creator)
+                  user: creator, status: :approved)
     login_as(user)
     # simula a ação do usuário
     visit root_path

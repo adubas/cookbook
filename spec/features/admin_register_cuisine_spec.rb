@@ -48,4 +48,13 @@ feature "Admin register cuisine" do
     expect(page).to have_content("Tipo de Cozinha já está em uso")
     expect(page).not_to have_content("Tipo de Cozinha cadastrado com sucesso!")
   end
+
+  scenario "and user can't acess this page" do
+    user = User.create!(email: "something@email.com", password: "457878")
+    login_as(user)
+
+    visit new_cuisine_path
+
+    expect(current_path).to eq root_path
+  end
 end

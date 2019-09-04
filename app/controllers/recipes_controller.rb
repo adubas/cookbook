@@ -1,10 +1,11 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: %i[show edit update]
+  before_action :find_recipe, only: %i[show edit update approves rejects]
   before_action :load_attributes, only: %i[new edit]
   before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :authorize_admin, only: %i[approves rejects pending]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.approved
   end
 
   def show
@@ -56,6 +57,20 @@ class RecipesController < ApplicationController
     if @recipes.empty?
       flash.now[:error] = "Não há nenhuma receita com esse nome"
     end
+  end
+
+  def pending
+    @recipes = Recipe.pending
+  end
+
+  def approves
+    @recipe.approved!
+    redirect_to @recipe
+  end
+
+  def rejects
+    @recipe.rejected!
+    redirect_to @recipe
   end
 
   private

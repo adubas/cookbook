@@ -17,6 +17,17 @@
 <h3>Como Preparar</h3>
 <p><%= @recipe.cook_method %></p>
 
+<p> Receita criada por <%= @recipe.user.email %> </p>
+
+<% if @recipe.pending? %>
+  <p> Receita Pendente</p>
+<% elsif @recipe.approved? %>
+  <p> Receita Aprovada</p>
+<% else @recipe.rejected? %>
+  <p> Receita Rejeitada</p>
+<%end %>
+
+
 <% if @recipe.owner?(current_user) %>
     <%= link_to 'Editar', edit_recipe_path %>
 <% end %>
@@ -27,6 +38,11 @@
     <%= select_tag(:recipe_list_id, options_from_collection_for_select(RecipeList.all, :id, :name)) %>
     <%= submit_tag("Adicionar") %>
   <% end %>
+  <% if current_user.admin? %>
+    <%= link_to "Aprovar", approves_recipe_path, method: :post %>
+    <%= link_to "Rejeitar", rejects_recipe_path, method: :post %>
+  <% end %>
 <% end %>
+
 
 <%= link_to 'Voltar', root_path %>

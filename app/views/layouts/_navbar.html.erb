@@ -4,6 +4,9 @@
     <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
     <%= link_to 'Minhas receitas', users_my_recipes_path %>
     <%= link_to 'Minhas Listas', users_my_lists_path %>
+    <% if current_user.admin? %>
+      <%= link_to 'Receitas Pendentes', pending_recipes_path%>
+    <% end %>
   <% else %>
     <%= link_to 'Entrar', new_user_session_path %>
   <% end %>
