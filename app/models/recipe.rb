@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
   has_many_attached :images
 
   validates :title, :recipe_type, :cuisine, :difficulty, :cook_time, :ingredients, :cook_method, presence: true
-  validates :title, uniqueness: { scope: :user_id }
+  validates :title, uniqueness: { scope: :user_id, case_sensitive: false }
 
   def cook_time_min
     "#{cook_time} minutos"

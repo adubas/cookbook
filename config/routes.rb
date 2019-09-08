@@ -15,4 +15,13 @@ Rails.application.routes.draw do
 
   get "users/my_recipes"
   get "users/my_lists"
+
+  namespace :api do
+    namespace :v1 do
+      resources :recipes, only: %i[show create update destroy]
+      resources :recipe_types, only: %i[show create]
+      resources :cuisines, only: %i[show create]
+    end
+  end
+
 end

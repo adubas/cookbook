@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use devise to create users
 gem 'devise'
 
+# Use factory for testing
+gem "factory_bot_rails"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
