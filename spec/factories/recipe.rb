@@ -1,5 +1,3 @@
-require "rails_helper"
-
 FactoryBot.define do
   factory :recipe do
     sequence(:title) { |n| "Bolo de #{n}"}
