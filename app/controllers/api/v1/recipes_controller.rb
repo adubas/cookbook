@@ -2,6 +2,15 @@ class Api::V1::RecipesController < Api::V1::ApiController
   before_action :authenticate_user!, only: %i[create update]
   before_action :find_recipe, only: %i[update destroy]
 
+  def index
+    @recipes = Recipe.all 
+    if @recipes.empty?
+      render json: "Nenhuma receita cadastrada", status: :not_found
+    else
+      render json: @recipes, status: :accepted
+    end
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
     render json: @recipe, status: :accepted

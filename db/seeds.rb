@@ -7,7 +7,7 @@ admin = User.create(email: "admin@email.com", password: "589965", admin: true)
 
 recipe_type = RecipeType.create!(name: "Prato Principal")
 another_recipe_type = RecipeType.create!(name: "Bebidas")
-spare_recipe_type = Recipe.create!(name: "Sobremesa")
+spare_recipe_type = RecipeType.create!(name: "Sobremesa")
 
 cuisine = Cuisine.create!(name: "Polonesa")
 another_cuisine = Cuisine.create!(name: "Brasileira")
